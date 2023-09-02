@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
@@ -12,9 +14,16 @@ app.set("view engine", "ejs");
 mongoose.set("strictQuery", false);
 main().catch((err) => console.log(err));
 
+const PORT = process.env.PORT || 3000;
+
 async function main() {
-  await mongoose.connect("mongodb+srv://kunalmundra:Kunal123@cluster0.ptc5jmr.mongodb.net/TodoDB?retryWrites=true&w=majority");
+  await mongoose.connect(process.env.Mongo_URL)
+.then((e) => {
   console.log("Database connected!");
+})
+.catch((err) => {
+  console.log(err);
+})
 }
 
 const itemSchema = {
@@ -154,6 +163,6 @@ app.post("/DeleteList", function (req, res) {
   }
 })
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(PORT, function () {
+  console.log("Server started on port", PORT);
 });
