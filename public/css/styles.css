@@ -1,7 +1,7 @@
 html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
-  min-height: 1000px;
+  min-height: 720px;
   font-family: 'helvetica neue';
 }
 
@@ -10,12 +10,24 @@ h1 {
   padding: 10px;
 }
 
+.container {
+  display: flex;
+}
+
 .box {
   max-width: 400px;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.left {
+  flex: 50%;
+}
+
+.right {
+  flex: 50%;
 }
 
 #heading {
@@ -57,15 +69,30 @@ form {
 }
 
 button {
-  min-height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border-color: transparent;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
   background-color: #A683E3;
-  color: #fff;
-  font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
+  border-radius: 5px;
+  border: 1px black;
+  font-size: 120%;
+  margin-right: 10px;
+}
+
+.Delete {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  background-color: rgb(243, 20, 20);
+  border-radius: 5px;
+  border: 1px black;
+  font-size: 150%;
 }
 
 input[type="text"] {
@@ -90,7 +117,9 @@ input[type="text"]:focus {
 }
 
 footer {
-  color: white;
-  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
